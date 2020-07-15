@@ -1,65 +1,45 @@
-public class Service extends Employe {
-    
-    //Taille Reservation :nombre  Cellule du Tableau
-    final int TAILLE=10;
-    //Taille Réélle :nbre element du Tableau
-    private int nbreEmploye=0;//nombre Classe dans le tableau, mais aussi la position d'insertion
-    private int nbreService = 0;
-    //Declaration des Tableaux
-    private Employe [] tabEmploye;
-    private Service [] tabService;
+public class Service implements IEmploye{
 
-    private int count;
-    this.count = 0;
-    private int id;
-    private String libelle;
+    int id;
+    String libelle;
 
-    public Service(){
-        //Creation du Tableau
-        this.tabEmploye=new Employe[TAILLE];
+    static int  nombreService=0;
+
+    public Service(String libelle){
+        this.id=nombreService;
+        nombreService++;
+
+        this.libelle=libelle;
+
     }
 
-    @Override
+
+
+
+
+
+    public int getId(){
+        return this.id;
+
+    }
+    public void setId(int id){
+        this.id=id;
+    }
+
+    public String getLibelle(){
+        return this.libelle;
+    }
+
+    public void setLibelle(String libelle){
+        this.libelle=libelle;
+    }
+
     public String affiche(){
-        return "Id: "+this.id+" Libelle : "+this.libelle;
+        return "0";
     }
 
-    private int generateId(){
-        return this.count++;
+    public int compare(){
+        return 0;
     }
-
-    public compare(int id){
-
-    }
-
-    public compare(String libelle){
-        
-    }
-
-    public void ajouterEmploye(Employe employe){
-        if(nbreEmploye < TAILLE){
-        this.tabEmploye[nbreEmploye]=employe;
-        this.nbreEmploye++;
-        }  else {
-            System.out.println("tableau rempli");
-        }
-    }
-
-    public void ajouterService(Service service){
-        if(nbreService < TAILLE){
-        this.tabService[nbreService]=service;
-        this.nbreService++;
-        } else {
-            System.out.println("tableau rempli");
-        }
-    }
-
-    public void listerService(){
-        for(int i = 0; i<TAILLE; i++){
-            System.out.println(tabService[i]);
-        }
-    }
-
-
-
+    
 }

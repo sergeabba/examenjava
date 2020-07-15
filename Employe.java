@@ -1,50 +1,69 @@
 import java.time.LocalDate;
-public abstract class Employe implements IEmploye {
-    
-    // Proprietes
-    private int count;
-    this.count = 0;
-    protected int id;
-    protected String nomComplet;
-    private LocalDate dateEmb;
 
-    public Employe(){
-        this.id = generateId();
+public class Employe implements IEmploye {
+
+    int id;
+    String nomComplet;
+    String dateEmbauche; 
+
+    static int  nombreEmploye=0;
+
+
+    public Employe(String nomComplet, String dateEmbauche) {
+
+        this.id=nombreEmploye;
+        nombreEmploye++;
+        this.nomComplet=nomComplet;
+        this.dateEmbauche=dateEmbauche;
+
+
     }
 
-    public Employe(String nomComplet){
-        this.nomComplet = nomComplet;
-        this.dateEmb= dateEmb
-        this.id = generateId(); // Ecrire une fonction generateId() qui genere un id unique
+    public int getId(){
+        return this.id;
+
+    }
+    public void setId(int id){
+        this.id=id;
     }
 
     public String getNomComplet(){
         return this.nomComplet;
     }
     public void setNomComplet(String nomComplet){
-        this.nomComplet = nomComplet;
+        this.nomComplet=nomComplet;
     }
 
-    public int getId(){
-        return this.id;
+    public String getDateEmbauche(){
+        return this.dateEmbauche;
+
     }
-     public int getDateEmb(){
-        return this.dateEmb;
-    }
-    public void setDateEmb(LocalDate dateEmb){
-        this.dateEmb = dateEmb;
+
+
+    public void setDateEmbauche(String dateEmbauche){
+        this.dateEmbauche=dateEmbauche;
     }
 
 
     @Override
-    public String affiche(){
-        return "Id: "+this.id+" Nom et Prenom : "+this.nomComplet" Date d'embauche :"this.dateEmb";
+    public String affiche() {
+        // TODO Auto-generated method stub
+        return null;
     }
+
+    @Override
+    public int compare() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public int anciennete(){
+
+        return 0;
+    }
+
+
+
 
     
-
-    private int generateId(){
-        return this.count++;
-    }
-
 }
